@@ -16,6 +16,6 @@ interface HyperedgeRerouter {
   void HyperedgeRerouter();
 
   // TODO: fix, cannot be overloaded
-  unsigned long registerHyperedgeForRerouting(ConnEndList terminals);
-  // unsigned long registerHyperedgeForRerouting(JunctionRef junction);
+  // unsigned long registerHyperedgeForRerouting(ConnEndList terminals);
+  unsigned long registerHyperedgeForRerouting(JunctionRef junction);
 };

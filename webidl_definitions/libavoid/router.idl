@@ -56,4 +56,6 @@ interface Router {
 
   void setRoutingParameter(Avoid_RoutingParameter parameter, double value);
   void setRoutingOption(Avoid_RoutingOption option, boolean value);
+  
+  HyperedgeRerouter hyperedgeRerouter();
 };
