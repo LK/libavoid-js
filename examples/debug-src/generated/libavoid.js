@@ -2579,8 +2579,8 @@ var dynCall_iiiiij = Module["dynCall_iiiiij"] = createExportWrapper("dynCall_iii
 var dynCall_iiiiijj = Module["dynCall_iiiiijj"] = createExportWrapper("dynCall_iiiiijj");
 /** @type {function(...*):?} */
 var dynCall_iiiiiijj = Module["dynCall_iiiiiijj"] = createExportWrapper("dynCall_iiiiiijj");
-var ___start_em_js = Module['___start_em_js'] = 110432;
-var ___stop_em_js = Module['___stop_em_js'] = 110530;
+var ___start_em_js = Module['___start_em_js'] = 110400;
+var ___stop_em_js = Module['___stop_em_js'] = 110498;
 
 // include: postamble.js
 // === Auto-generated postamble setup entry stuff ===
@@ -3639,11 +3639,11 @@ AStarPath.prototype['search'] = AStarPath.prototype.search = function(lineRef, s
 /**
  * @class
  */
-function ConnEnd(shapeRef, connectionPinClassID) {
-  if (shapeRef && typeof shapeRef === 'object') shapeRef = shapeRef.ptr;
-  if (connectionPinClassID && typeof connectionPinClassID === 'object') connectionPinClassID = connectionPinClassID.ptr;
-  if (connectionPinClassID === undefined) { this.ptr = _emscripten_bind_ConnEnd_ConnEnd_1(shapeRef); getCache(ConnEnd)[this.ptr] = this;return }
-  this.ptr = _emscripten_bind_ConnEnd_ConnEnd_2(shapeRef, connectionPinClassID);
+function ConnEnd(point, visDirs) {
+  if (point && typeof point === 'object') point = point.ptr;
+  if (visDirs && typeof visDirs === 'object') visDirs = visDirs.ptr;
+  if (visDirs === undefined) { this.ptr = _emscripten_bind_ConnEnd_ConnEnd_1(point); getCache(ConnEnd)[this.ptr] = this;return }
+  this.ptr = _emscripten_bind_ConnEnd_ConnEnd_2(point, visDirs);
   getCache(ConnEnd)[this.ptr] = this;
 };;
 ConnEnd.prototype = Object.create(WrapperObject.prototype);

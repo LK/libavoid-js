@@ -27,8 +27,11 @@ declare interface PolyLine {
 
 declare interface ConnEnd {
   new (point: Point): ConnEnd;
-  new (shapeRef: ShapeRef, classId: number): ConnEnd;
-  createConnEndFromJunctionRef(JunctionRef: JunctionRef, classId: number): ConnEnd;
+  new (point: Point, visDirs: ConnDirFlags): ConnEnd;
+  createConnEndFromJunctionRef(
+    JunctionRef: JunctionRef,
+    classId: number
+  ): ConnEnd;
 }
 
 declare interface ConnRef {
@@ -49,12 +52,29 @@ declare interface ConnRef {
 }
 
 declare enum ConnDirFlags {
-  // TODO
+  ConnDirNone = 0,
+  ConnDirUp = 1,
+  ConnDirDown = 2,
+  ConnDirLeft = 4,
+  ConnDirRight = 8,
+  ConnDirAll = 15,
 }
 
 declare interface ShapeConnectionPin {
-  new(shape: ShapeRef, classId: number, xOffset: number, yOffset: number, proportional: boolean, insideOffset: number, visDirs: ConnDirFlags): ShapeConnectionPin;
-  new(junction: JunctionRef, classId: number, visDirs?: ConnDirFlags): ShapeConnectionPin;
+  new (
+    shape: ShapeRef,
+    classId: number,
+    xOffset: number,
+    yOffset: number,
+    proportional: boolean,
+    insideOffset: number,
+    visDirs: ConnDirFlags
+  ): ShapeConnectionPin;
+  new (
+    junction: JunctionRef,
+    classId: number,
+    visDirs?: ConnDirFlags
+  ): ShapeConnectionPin;
 
   setConnectionCost(cost: number): void;
   setExclusive(exclusive: boolean): void;
@@ -63,7 +83,6 @@ declare interface ShapeConnectionPin {
   position(): Point;
   updatePosition(newPosition: Point): void;
 }
-
 
 declare interface JunctionRef {
   new (router: Router, point: Point, id?: number): JunctionRef;

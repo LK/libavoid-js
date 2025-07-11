@@ -1,14 +1,19 @@
 // debug web version
 // import { AvoidLib } from './debug-dist/index.mjs';
 // production web version
-import { AvoidLib } from './dist/index.js';
+import { AvoidLib } from "./dist/index.js";
 
 async function main() {
   // init Avoid module
-  await AvoidLib.load();
+  await AvoidLib.load("./dist/libavoid.wasm");
   const Avoid = AvoidLib.getInstance();
 
   const router = new Avoid.Router(Avoid.PolyLineRouting);
+
+  // Test the new hyperedgeRerouter method
+  console.log("Testing hyperedgeRerouter method:");
+  const hyperedgeRerouter = router.hyperedgeRerouter();
+  console.log("HyperedgeRerouter instance:", hyperedgeRerouter);
 
   const srcPt = new Avoid.Point(1.2, 0.5);
   const dstPt = new Avoid.Point(1.5, 4);
@@ -16,7 +21,7 @@ async function main() {
   const srcConnEnd = new Avoid.ConnEnd(srcPt);
   const dstConnEnd = new Avoid.ConnEnd(dstPt);
   const connRef = new Avoid.ConnRef(router); // , srcConnEnd, dstConnEnd
-  console.log(1, connRef, connRef.g)
+  console.log(1, connRef, connRef.g);
 
   function connCallback(connRefPtr) {
     // console.log(connRefPtr);
@@ -24,12 +29,12 @@ async function main() {
     console.log(connRefPtr, Avoid.getPointer(connRef));
     console.log(`Connector ${connRef.id()} needs rerouting!`);
     const route = connRef.displayRoute();
-    console.log('New path: ');
-    console.log('----------');
+    console.log("New path: ");
+    console.log("----------");
     for (let i = 0; i < route.size(); i++) {
       console.log(`(${route.get_ps(i).x}, ${route.get_ps(i).y})`);
     }
-    console.log('----------');
+    console.log("----------");
   }
 
   connRef.setCallback(connCallback, connRef);
@@ -57,4 +62,4 @@ async function main() {
   router.processTransaction();
 }
 
-main()
+main();

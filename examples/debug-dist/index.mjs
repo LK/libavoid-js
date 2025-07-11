@@ -1808,8 +1808,8 @@ var initAvoidModule = (() => {
     var dynCall_iiiiij = Module["dynCall_iiiiij"] = createExportWrapper("dynCall_iiiiij");
     var dynCall_iiiiijj = Module["dynCall_iiiiijj"] = createExportWrapper("dynCall_iiiiijj");
     var dynCall_iiiiiijj = Module["dynCall_iiiiiijj"] = createExportWrapper("dynCall_iiiiiijj");
-    var ___start_em_js = Module["___start_em_js"] = 110432;
-    var ___stop_em_js = Module["___stop_em_js"] = 110530;
+    var ___start_em_js = Module["___start_em_js"] = 110400;
+    var ___stop_em_js = Module["___stop_em_js"] = 110498;
     var missingLibrarySymbols = [
       "zeroMemory",
       "exitJS",
@@ -2698,17 +2698,17 @@ var initAvoidModule = (() => {
       var self2 = this.ptr;
       _emscripten_bind_AStarPath___destroy___0(self2);
     };
-    function ConnEnd(shapeRef, connectionPinClassID) {
-      if (shapeRef && typeof shapeRef === "object")
-        shapeRef = shapeRef.ptr;
-      if (connectionPinClassID && typeof connectionPinClassID === "object")
-        connectionPinClassID = connectionPinClassID.ptr;
-      if (connectionPinClassID === void 0) {
-        this.ptr = _emscripten_bind_ConnEnd_ConnEnd_1(shapeRef);
+    function ConnEnd(point, visDirs) {
+      if (point && typeof point === "object")
+        point = point.ptr;
+      if (visDirs && typeof visDirs === "object")
+        visDirs = visDirs.ptr;
+      if (visDirs === void 0) {
+        this.ptr = _emscripten_bind_ConnEnd_ConnEnd_1(point);
         getCache(ConnEnd)[this.ptr] = this;
         return;
       }
-      this.ptr = _emscripten_bind_ConnEnd_ConnEnd_2(shapeRef, connectionPinClassID);
+      this.ptr = _emscripten_bind_ConnEnd_ConnEnd_2(point, visDirs);
       getCache(ConnEnd)[this.ptr] = this;
     }
     ;
