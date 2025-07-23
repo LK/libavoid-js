@@ -1,0 +1,25 @@
+[Prefix="Avoid::"]
+interface ConnEndListBuilder {
+  void ConnEndListBuilder();
+  
+  // Add a ConnEnd to the list
+  void addConnEnd([Ref] ConnEnd connEnd);
+  
+  // Add a shape pin connection
+  void addShapePin(ShapeRef shape, unsigned long pinClassId);
+  
+  // Add a point connection
+  void addPoint([Ref] Point point, optional ConnDirFlags visDirs);
+  
+  // Add a junction connection
+  void addJunction(JunctionRef junction);
+  
+  // Clear the list
+  void clear();
+  
+  // Get the number of endpoints
+  unsigned long size();
+  
+  // Register this hyperedge with the router
+  unsigned long registerHyperedge(HyperedgeRerouter rerouter);
+};

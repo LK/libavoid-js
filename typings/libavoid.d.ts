@@ -119,6 +119,18 @@ declare interface HyperedgeRerouter {
   registerHyperedgeForRerouting(junction: JunctionRef): number;
 }
 
+declare interface ConnEndListBuilder {
+  new (): ConnEndListBuilder;
+  
+  addConnEnd(connEnd: ConnEnd): void;
+  addShapePin(shape: ShapeRef, pinClassId: number): void;
+  addPoint(point: Point, visDirs?: ConnDirFlags): void;
+  addJunction(junction: JunctionRef): void;
+  clear(): void;
+  size(): number;
+  registerHyperedge(rerouter: HyperedgeRerouter): number;
+}
+
 declare interface HyperedgeNewAndDeletedObjectLists {}
 
 declare interface Polygon {
@@ -189,6 +201,7 @@ export interface Avoid {
   ShapeConnectionPin: ShapeConnectionPin;
   HyperedgeRerouter: HyperedgeRerouter;
   HyperedgeNewAndDeletedObjectLists: HyperedgeNewAndDeletedObjectLists;
+  ConnEndListBuilder: ConnEndListBuilder;
 
   destroy(obj: any): void;
   getPointer(obj: any): number;

@@ -23,7 +23,8 @@ SOURCE_FILES = [
   'mtst',
   'connector',
   'graph',
-  'router'
+  'router',
+  'connendlistbuilder'
 ]
 ADAPTAGRAMS_VERSION = "1.0.4"
 
@@ -66,7 +67,10 @@ def generate_bindings(output_dir, debug=False):
   execute_command(f'python3 webidl-embindgen/webidl_binder.py {result_idl_filename} ./{output_dir}/glue', logger, env=env)
 
   for source_file in SOURCE_FILES:
-    glue_wrapper_content += f'#include <libavoid/{source_file}.h>\n'
+    if source_file == 'connendlistbuilder':
+      glue_wrapper_content += f'#include <libavoid/hyperedge_helpers.h>\n'
+    else:
+      glue_wrapper_content += f'#include <libavoid/{source_file}.h>\n'
 
   glue_wrapper_content += '#include <glue.cpp>'
 
@@ -84,7 +88,8 @@ def compile(generated_sources_dir, dist_dir_name, debug=False, environment: Lite
   post_js_args = f' --post-js ./{generated_sources_dir}/glue.js'
   compiler_sources = ''
   for source_file in SOURCE_FILES:
-    compiler_sources += f' ./adaptagrams/cola/libavoid/{source_file}.cpp'
+    if source_file != 'connendlistbuilder':  # Skip our custom header-only file
+      compiler_sources += f' ./adaptagrams/cola/libavoid/{source_file}.cpp'
   
   compiler_sources += f' ./{generated_sources_dir}/glue_wrapper.cpp'
   # add dependencies that has no public class interfaces

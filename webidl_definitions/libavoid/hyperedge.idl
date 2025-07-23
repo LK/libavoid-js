@@ -15,8 +15,8 @@ interface HyperedgeNewAndDeletedObjectLists {
 interface HyperedgeRerouter {
   void HyperedgeRerouter();
 
-  // Cannot overload with different parameter types in WebIDL
-  // Use registerHyperedgeForReroutingFromTerminals for ConnEndList
+  // Junction-based registration (for simple cases)
   unsigned long registerHyperedgeForRerouting(JunctionRef junction);
-  // unsigned long registerHyperedgeForRerouting(ConnEndList terminals);
+  
+  // For ConnEndList registration, use ConnEndListBuilder.registerHyperedge()
 };
