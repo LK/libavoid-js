@@ -165,7 +165,8 @@ def main():
   # build sources
   adaptagrams_sources_path = Path('./adaptagrams')
   if adaptagrams_sources_path.exists() != True or adaptagrams_sources_path.is_dir() != True:
-    execute_command(f'git clone https://github.com/Aksem/adaptagrams.git -b v{ADAPTAGRAMS_VERSION}', logger)
+    #execute_command(f'git clone https://github.com/Aksem/adaptagrams.git -b v{ADAPTAGRAMS_VERSION}', logger)
+    execute_command(f'git clone https://github.com/LK/adaptagrams.git -b master', logger)
     patch_adaptagrams_sources('./adaptagrams/')
   
   # build tools: webidl_binder
