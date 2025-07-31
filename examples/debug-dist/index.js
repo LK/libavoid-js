@@ -1808,8 +1808,8 @@ var initAvoidModule = (() => {
     var dynCall_iiiiij = Module["dynCall_iiiiij"] = createExportWrapper("dynCall_iiiiij");
     var dynCall_iiiiijj = Module["dynCall_iiiiijj"] = createExportWrapper("dynCall_iiiiijj");
     var dynCall_iiiiiijj = Module["dynCall_iiiiiijj"] = createExportWrapper("dynCall_iiiiiijj");
-    var ___start_em_js = Module["___start_em_js"] = 113840;
-    var ___stop_em_js = Module["___stop_em_js"] = 113938;
+    var ___start_em_js = Module["___start_em_js"] = 110560;
+    var ___stop_em_js = Module["___stop_em_js"] = 110658;
     var missingLibrarySymbols = [
       "zeroMemory",
       "exitJS",
